@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://i26wn2skymsw"]
+
+[ext_resource type="Script" path="res://src/stage.gd" id="1_iikn7"]
+[ext_resource type="Texture2D" uid="uid://drutqrjq2nnxl" path="res://assets/arena.png" id="2_wqfqi"]
+[ext_resource type="PackedScene" uid="uid://didip3qyombg3" path="res://src/player.tscn" id="3_2fkyd"]
+
+[node name="Stage" type="StaticBody2D"]
+script = ExtResource("1_iikn7")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Arena" type="Sprite2D" parent="."]
+position = Vector2(577, 324)
+scale = Vector2(11.2188, 11.2188)
+texture = ExtResource("2_wqfqi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-281, -372, 1272, -371, 1273, 1020, -119, 1019, -119, -486, -199, -479, -213, 1104, 1399, 1111, 1401, -493, -304, -491)
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Bullets" type="Node" parent="."]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemySpawnSpots" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawnSpots"]
+position = Vector2(-60, -313)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawnSpots"]
+position = Vector2(1214, -302)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawnSpots"]
+position = Vector2(1231, 980)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemySpawnSpots"]
+position = Vector2(-72, 980)
+
+[node name="Player" parent="." instance=ExtResource("3_2fkyd")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true

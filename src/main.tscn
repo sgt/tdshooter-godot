@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjeoch728lr6j"]
+
+[ext_resource type="Script" path="res://src/main.gd" id="1_usnto"]
+[ext_resource type="PackedScene" uid="uid://i26wn2skymsw" path="res://src/stage.tscn" id="2_4lin4"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_usnto")
+
+[node name="Stage" parent="." instance=ExtResource("2_4lin4")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="StartButton" type="Button" parent="HUD"]
+offset_left = 358.0
+offset_top = 107.0
+offset_right = 901.0
+offset_bottom = 281.0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Start
+"
+
+[node name="QuitButton" type="Button" parent="HUD"]
+offset_left = 275.0
+offset_top = 379.0
+offset_right = 667.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Quit"
