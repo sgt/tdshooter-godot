@@ -4,17 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://drutqrjq2nnxl" path="res://assets/arena.png" id="2_wqfqi"]
 [ext_resource type="PackedScene" uid="uid://didip3qyombg3" path="res://src/player.tscn" id="3_2fkyd"]
 
-[node name="Stage" type="StaticBody2D"]
+[node name="Stage" type="Node2D"]
 script = ExtResource("1_iikn7")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="Arena" type="Sprite2D" parent="."]
+[node name="Arena" type="StaticBody2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Arena"]
 position = Vector2(577, 324)
 scale = Vector2(11.2188, 11.2188)
 texture = ExtResource("2_wqfqi")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Arena"]
 polygon = PackedVector2Array(-281, -372, 1272, -371, 1273, 1020, -119, 1019, -119, -486, -199, -479, -213, 1104, 1399, 1111, 1401, -493, -304, -491)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
@@ -39,6 +41,9 @@ position = Vector2(1231, 980)
 position = Vector2(-72, 980)
 
 [node name="Player" parent="." instance=ExtResource("3_2fkyd")]
+speed = 300.0
+slow_down_speed = 20.0
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
 position_smoothing_enabled = true

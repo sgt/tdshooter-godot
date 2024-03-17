@@ -9,8 +9,15 @@ const DEFAULT_SPEED: float = 300.0
 
 @export var speed: float = DEFAULT_SPEED
 @export var slow_down_speed: float = DEFAULT_SPEED / 15
+@export var is_active: bool = false
 
 func _physics_process(_delta: float):
+
+	move_and_slide()
+
+	if not is_active:
+		return
+
 	# turn towards mouse
 	look_at(get_global_mouse_position())
 
@@ -27,10 +34,9 @@ func _physics_process(_delta: float):
 	else:
 		velocity.y = move_toward(velocity.y, 0, slow_down_speed)
 
-	move_and_slide()
-	var collision:KinematicCollision2D  = get_last_slide_collision()
+	var collision: KinematicCollision2D = get_last_slide_collision()
 	if collision:
-		var body:Node = collision.get_collider()
+		var body: Node = collision.get_collider()
 		if body.is_in_group("enemies"):
 			Events.game_over.emit()
 

@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqxjkk3xykc82"]
+
+[ext_resource type="Script" path="res://src/hud.gd" id="1_n8ynw"]
+
+[node name="HUD" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_n8ynw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DummyControl" type="Label" parent="CanvasLayer"]
+editor_description = "This is a label with a single space. If it does not come first in the canvaslayer, the ui gets garbled for some reason."
+offset_right = 40.0
+offset_bottom = 40.0
+text = " "
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreTitleLabel" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 114.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.909804, 0.909804, 0.909804, 1)
+theme_override_font_sizes/font_size = 40
+text = "Score: "
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 137.0
+offset_top = 7.0
+offset_right = 264.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.909804, 0.909804, 0.909804, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="StartScreen" type="Node2D" parent="CanvasLayer"]
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/StartScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 428.0
+offset_top = 232.0
+offset_right = 736.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.180392, 0.270588, 0.164706, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "TDShooter"
+
+[node name="StartButton" type="Button" parent="CanvasLayer/StartScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 485.5
+offset_top = 360.0
+offset_right = 666.5
+offset_bottom = 456.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Start
+"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/StartScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 484.5
+offset_top = 496.5
+offset_right = 667.5
+offset_bottom = 581.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 48
+action_mode = 0
+text = "Quit"
+
+[node name="GameOverScreen" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/GameOverScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 428.0
+offset_top = 232.0
+offset_right = 736.0
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.180392, 0.270588, 0.164706, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 60
+text = "Game Over"

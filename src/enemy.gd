@@ -15,4 +15,5 @@ func _physics_process(_delta: float):
 
 
 func killed():
+	Events.score_changed.emit(1)
 	queue_free()
